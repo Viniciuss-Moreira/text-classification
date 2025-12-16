@@ -1,0 +1,14 @@
+{
+  "MLModelVersionStringKey" : "--",
+  "MLModelDescriptionKey" : ".",
+  "MLModelCreatorDefinedKey" : {
+    "com.apple.createml.training.finished" : "2025-12-15T08:19:37Z",
+    "com.apple.createml.app.tag" : "175.7",
+    "com.apple.createml.model.created" : "2025-12-15T08:19:37Z",
+    "com.apple.coreml.model.preview.type" : "textClassifier",
+    "com.apple.createml.app.version" : "6.2",
+    "com.apple.createml.training.started" : "2025-12-15T08:17:33Z"
+  },
+  "MLModelAuthorKey" : "Vinicius Silva Moreira",
+  "MLModelLicenseKey" : "--"
+}
