@@ -1,97 +1,35 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Fake News Detection
 
-# Getting Started
+Fake news detector that use local text classification model on react-native plataform with iOS native components.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+<img width="375" height="757" alt="image" src="https://github.com/user-attachments/assets/cbb092f1-19b5-4429-a1e5-0ae984018310" />
+<img width="372" height="756" alt="Captura de Tela 2025-12-17 às 05 31 51" src="https://github.com/user-attachments/assets/096d4634-529e-4e2a-85fb-6e40832d23a0" />
+<img width="377" height="760" alt="Captura de Tela 2025-12-17 às 05 34 43" src="https://github.com/user-attachments/assets/d950636b-447e-401d-a759-8f102dbcd1ef" />
 
-## Step 1: Start Metro
+https://github.com/user-attachments/assets/70f8f82b-eeed-486a-839e-a69e27c21b1e
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## How it works
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+The flow of taking user input from the hybrid platform to the local Swift model consists of:
 
-```sh
-# Using npm
-npm start
+1.  **Interaction Layer (React Native)**: The user initiates an action via the react-native interface
+2.  **Native Bridge**: The app invokes a custom native module, passing data from react-native to the iOS Native layer (Swift)
+3.  **Model Processing**: The Swift layer handles the heavy lifting, executing the locally text classification model with coreML
+4.  **Data Return**: The processed results are returned asynchronously back to the react-native environment
+5.  **Persistence**: The final output is structured and securely stored in the local SQLite database
+6.  **UI Update**: The react-native state is updated to reflect the new data
 
-# OR using Yarn
-yarn start
-```
+## Tech Stack
 
-## Step 2: Build and run your app
+- **CreateML** - Training model with kaggle personalized dataset
+- **CoreML** - Inference on the model
+- **React-Native** - UI plataform
+- **SQLite** Local DB for persistence user sessions
+- **Objective-C** Bridging swift to react-native environment
+- **Swift** Native iOS components
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## Requirements
 
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- iOS 17.0+ (Android version coming soon)
+- iPhone device
+- VS Code and Xcode 16.0+
